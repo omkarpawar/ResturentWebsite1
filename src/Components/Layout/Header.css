@@ -1,0 +1,25 @@
+.Header-main-div{
+  
+  padding-bottom: 139px;
+  background-image: url('https://media.istockphoto.com/id/1152493500/photo/authentic-indian-dishes-and-snacks.jpg?s=1024x1024&w=is&k=20&c=Sg-IcPrsSNATHg6KPxiJ1iLJOgeZHorsVklZJOSD0U0=');
+ 
+}
+.heading{
+  background-color: brown;
+  
+  
+}
+
+
+.cartButton{
+  padding-top: 1px;
+  margin-left: 97px;
+  padding-bottom: 1px;
+  color: aliceblue;
+  font-family: sans-serif;
+}
+
+.cartButton2{
+  margin-left: 80%;
+  margin-top: -205px;
+}

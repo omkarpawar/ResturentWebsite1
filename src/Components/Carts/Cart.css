@@ -1,0 +1,18 @@
+.cart{
+  border: 2px solid black;
+  border-radius: 20px;
+  
+  text-align: center;
+  margin-right: 27%;
+
+  background-color: rgb(104, 17, 17);
+
+}
+
+.para{
+  margin-right: 2px;
+
+  color: aliceblue;
+  font-family: sans-serif;
+}
+
