@@ -1,0 +1,10 @@
+.Summary-main{
+  border: 2px solid rgb(68, 64, 64);
+  margin-right: 24%;
+  margin-left: 24%;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-radius: 20px;
+  background-color: rgb(68, 64, 64);
+  color: white;
+}
