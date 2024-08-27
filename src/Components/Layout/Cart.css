@@ -1,0 +1,34 @@
+.cart{
+  display: flex;
+  border: 2px solid brown;
+  border-radius: 201px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+  background-color: rgb(88, 17, 17);
+  text-align: center;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+.logo{
+  margin-top: 5px;
+}
+
+.para{
+  margin-left: 9px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.number{
+  border: 2px solid brown;
+  border-radius: 11px;
+  padding: 3px;
+  margin-left: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: brown;
+
+
+}

@@ -1,20 +1,24 @@
 import './Header.css';
-import CartButton from '../Carts/CartButton';
+import { Fragment } from 'react';
+import CartButton from './CartButton';
 
 const Header=()=>{
   return(
+    <Fragment>
     <div>
     <div className='Header-main-div'>
       <div className='heading'>   
-      <div className='cartButton'>
-        <h1>ReactMeals</h1>
+        <div className='cartButton'>
+          <h1>ReactMeals</h1>
+        </div>
+        <div className='cartButton2'>
+            <CartButton/>
         </div>
       </div>
     </div>
-    <div className='cartButton2'>
-            <CartButton/>
+  
     </div>
-    </div>
+    </Fragment>
   )
 }
 
