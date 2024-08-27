@@ -1,9 +1,16 @@
+import './Meals.css';
 import Summary from "./Summary";
+import ItemList from './ItemList';
 const Meals =()=>{
   return(
-    <div>
+    <>
+    
+    <div className="Meals">
       <Summary/>
+      <ItemList/>
     </div>
+
+  </>
   )
 }
 
