@@ -41,13 +41,13 @@ const items=[
 
   {
     name:'MAc Spicy Panner Burger',
-    title:'spicy sauce with panner patty with loaded lactus',
+    title:'spicy sauce with panner',
     price:'$10.00',
   },
 
   {
     name:'VADA PAV',
-    title:'spicy VADA PAV with green chilli and with pudina chutney',
+    title:'spicy VADA PAV with green chilli',
     price:'$1.00',
   },
 

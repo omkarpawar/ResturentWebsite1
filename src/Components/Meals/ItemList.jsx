@@ -5,7 +5,7 @@ import './ItemList.css';
 const ItemList=()=>{
 
   const {itemList}=useContext(ItemListData)
-  console.log(itemList)
+ 
 
   return(
     <div className="itemList">
