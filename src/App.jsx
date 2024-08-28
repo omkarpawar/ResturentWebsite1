@@ -1,5 +1,6 @@
 import Header from './Components/Layout/Header';
 import Meals from './Components/Meals/Meals';
+import Modal from './Components/UI/Modal';
 import ItemListProvider from './Store/Item-List-Store';
 
 import './App.css'
@@ -10,10 +11,12 @@ function App() {
   return (
     <>
     <ItemListProvider>
+  
       <Header/>
-      <main>
-        <Meals/>
-      </main>
+        <main>
+          
+          <Meals/>
+        </main>
     </ItemListProvider>
     </>
   )
