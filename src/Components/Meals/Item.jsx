@@ -1,7 +1,23 @@
+import { useContext } from 'react';
+import { ItemList } from '../../Store/Item-List-Store';
 import './Item.css';
 
+
 const Item=({item})=>{
-  console.log(item)
+
+  const {addItem}=useContext(ItemList)
+  
+  const formSubmitHandler=(event)=>{
+    event.preventDefault();
+
+    
+    const name=item.name;
+
+    addItem(name)
+
+   
+  }
+
   return(
     <div className="item">
       <ul>
@@ -13,7 +29,7 @@ const Item=({item})=>{
           </div>
           
         <div className='addItems'>
-          <form action="">
+          <form  onSubmit={formSubmitHandler}>
               <div className='form-group'>
                 <label htmlFor='amount'><strong>Amount</strong></label>
                 <input type="number" id='amount' title='amount' />

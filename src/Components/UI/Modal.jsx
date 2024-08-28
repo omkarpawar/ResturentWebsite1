@@ -1,6 +1,7 @@
 import './Modal.css';
 import ReactDom from "react-dom";
-import React from 'react';
+import React, { useContext } from 'react';
+import { ItemList } from '../../Store/Item-List-Store';
 
 const Backdrop=(props)=>{
 
@@ -10,7 +11,11 @@ const ModalOverlays=(props)=>{
 
   return(
     <div className="main-carts">
-        <p>Sushi</p>
+        <ul>
+          {props.cartList.map((cart,index)=><li key={index}>{cart.name}</li>)}
+        </ul>
+        
+        
         <div className="mid-cart">
           <span>Total Amount</span>
           <span className="amount">35.56</span>
@@ -27,10 +32,15 @@ const ModalOverlays=(props)=>{
 
 
 const Modal=(props)=>{
+
+  const {cartList}=useContext(ItemList)
+  
+
+
   return(
     <React.Fragment>
       {ReactDom.createPortal(<Backdrop/>,document.getElementById("backdrop-root"))}
-      {ReactDom.createPortal(<ModalOverlays onConfirm={props.onConfirm}/>,document.getElementById("overlay-root"))}
+      {ReactDom.createPortal(<ModalOverlays cartList={cartList} onConfirm={props.onConfirm}/>,document.getElementById("overlay-root"))}
       
     </React.Fragment>
   )
