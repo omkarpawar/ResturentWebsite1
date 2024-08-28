@@ -17,7 +17,7 @@ const ModalOverlays=(props)=>{
         </div>
 
         <div className="footer-cart">
-          <button className="closeButton">Close</button>
+          <button className="closeButton" onClick={props.onConfirm}>Close</button>
           <button className="orderButton">Order</button>
         </div>
 
@@ -26,11 +26,11 @@ const ModalOverlays=(props)=>{
 }
 
 
-const Modal=()=>{
+const Modal=(props)=>{
   return(
     <React.Fragment>
       {ReactDom.createPortal(<Backdrop/>,document.getElementById("backdrop-root"))}
-      {ReactDom.createPortal(<ModalOverlays/>,document.getElementById("overlay-root"))}
+      {ReactDom.createPortal(<ModalOverlays onConfirm={props.onConfirm}/>,document.getElementById("overlay-root"))}
       
     </React.Fragment>
   )

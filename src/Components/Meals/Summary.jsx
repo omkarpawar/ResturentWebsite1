@@ -1,10 +1,14 @@
 import "./Summary.css";
-import Modal from "../UI/Modal";
+
 
 const Summary=()=>{
+
+  
+
+
   return(
     <div>
-      <Modal/>
+     
     <section className="Summary-main">
     <center>
       <h1> Delicious Food, Delevered to you</h1>
