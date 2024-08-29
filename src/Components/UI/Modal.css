@@ -69,4 +69,21 @@
 
 ul {
   list-style-type: none;
+  
+}
+.cart-name{
+  font-weight: bold;
+  display: inline;
+}
+.price{
+  display: flex;
+  margin-top: 10px;
+}
+.amountprice{
+  display: flex;
+  margin-left: 30px;
+}
+
+.buttons{
+  margin-left: 70%;
 }

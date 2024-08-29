@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { ItemList } from '../../Store/Item-List-Store';
 import './Item.css';
 
@@ -6,14 +6,17 @@ import './Item.css';
 const Item=({item})=>{
 
   const {addItem}=useContext(ItemList)
+  const amountElement=useRef()
   
   const formSubmitHandler=(event)=>{
     event.preventDefault();
 
-    
+    const id=item.id;
     const name=item.name;
+    const price = item.price;
+    const amount=amountElement.current.value;
 
-    addItem(name)
+    addItem(id,name,price,amount)
 
    
   }
@@ -32,7 +35,7 @@ const Item=({item})=>{
           <form  onSubmit={formSubmitHandler}>
               <div className='form-group'>
                 <label htmlFor='amount'><strong>Amount</strong></label>
-                <input type="number" id='amount' title='amount' />
+                <input type="number" ref={amountElement} id='amount' title='amount' />
               </div>
               
               <button className='button'><strong>+Add</strong></button>

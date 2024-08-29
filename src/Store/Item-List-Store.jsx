@@ -4,7 +4,9 @@ export const ItemList=createContext({
   itemList:[],
   cartList:[],
   addItem:()=>{},
-  deleteItem:()=>{},
+  amountDecrement:()=>{},
+  amountIncrement:()=>{},
+  
 })
 
 
@@ -16,8 +18,13 @@ const cartListReducer=(cartList,action)=>{
   if(action.type==='ADD_ITEM'){
     
     newCartList=[action.payload,...cartList];
-
+  }else if(action.type==='DELETE_AMOUNT'){
+    newCartList= cartList.map((item)=>item.id === action.payload.id && item.amount>0 ? {...item, amount:Number(item.amount) - 1}:{item})
+  }else if(action.type==='ADD_AMOUNT'){
+    newCartList=cartList.map((item)=>item.id === action.payload.id ? {...item,amount:Number(item.amount)+1}:{item})
   }
+
+
   return newCartList;
 }
 
@@ -27,21 +34,43 @@ const ItemListProvider=({children})=>{
 
   const [cartList,dispatchCartList]=useReducer(cartListReducer,[])
 
-  const addItem=(name)=>{
+  const addItem=(id,name,price,amount)=>{
     
     dispatchCartList({
       type:'ADD_ITEM',
       payload:{
-          name,
+          id:id,
+          name:name,
+          price:price,
+          amount:amount,
       },
     })
   }
 
-  const deleteItem=()=>{
+  const amountDecrement=(id,)=>{
+    
+    console.log(id)
+    dispatchCartList({
+      type:'DELETE_AMOUNT',
+      payload:{
+          id,
+      },
+    })
+  }
+
+  const amountIncrement=(id)=>{
+
+    console.log(id)
+    dispatchCartList({
+      type:'ADD_AMOUNT',
+      payload:{
+          id,
+      },
+    })
 
   }
 
-  return <ItemList.Provider value={{itemList,cartList,addItem,deleteItem}}>{children}</ItemList.Provider>
+  return <ItemList.Provider value={{itemList,cartList,addItem,amountDecrement,amountIncrement}}>{children}</ItemList.Provider>
 }
 
 
@@ -62,7 +91,7 @@ const items=[
 
   {
     id:3,
-    name:'MAc Spicy Panner Burger',
+    name:'Panner Burger',
     title:'spicy sauce with panner',
     price:'$10.00',
   },

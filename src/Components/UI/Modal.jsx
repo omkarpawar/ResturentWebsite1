@@ -1,10 +1,11 @@
 import './Modal.css';
 import ReactDom from "react-dom";
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ItemList } from '../../Store/Item-List-Store';
 
 const Backdrop=(props)=>{
-
+  
+  
   return <div className='backdrop'></div>
 }
 const ModalOverlays=(props)=>{
@@ -12,7 +13,23 @@ const ModalOverlays=(props)=>{
   return(
     <div className="main-carts">
         <ul>
-          {props.cartList.map((cart,index)=><li key={index}>{cart.name}</li>)}
+          {props.cartList.map((cart,index)=>
+          <li key={index}>
+            <div className='cart-name'>
+              {cart.name}
+            </div>
+            <div className='price'>
+              {cart.price}
+              <div className='amountprice'>
+                x{cart.amount}  
+              </div> 
+              <div className='buttons'>
+                  <button onClick={()=>props.amountDecrement(cart.id)}>-</button>
+                  <button onClick={()=>props.amountIncrement(cart.id)}>+</button>
+                </div>
+            </div>
+            <hr />
+          </li>)}
         </ul>
         
         
@@ -32,15 +49,14 @@ const ModalOverlays=(props)=>{
 
 
 const Modal=(props)=>{
-
-  const {cartList}=useContext(ItemList)
   
-
+  const {cartList,amountDecrement,amountIncrement}=useContext(ItemList)
+  
 
   return(
     <React.Fragment>
       {ReactDom.createPortal(<Backdrop/>,document.getElementById("backdrop-root"))}
-      {ReactDom.createPortal(<ModalOverlays cartList={cartList} onConfirm={props.onConfirm}/>,document.getElementById("overlay-root"))}
+      {ReactDom.createPortal(<ModalOverlays amountIncrement={amountIncrement} amountDecrement={amountDecrement} cartList={cartList} onConfirm={props.onConfirm}/>,document.getElementById("overlay-root"))}
       
     </React.Fragment>
   )
